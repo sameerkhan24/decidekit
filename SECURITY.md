@@ -2,10 +2,8 @@
 
 ## Reporting a vulnerability
 
-Do not open a public issue for a suspected vulnerability. Contact the repository owner privately through the
-security-reporting channel configured on the eventual GitHub repository.
-
-Until that channel is configured, do not publish DecideKit for production use with untrusted inputs.
+Do not open a public issue for a suspected vulnerability. Report it privately through a
+[GitHub Security Advisory](https://github.com/sameerkhan24/decidekit/security/advisories/new).
 
 ## Scope and expectations
 

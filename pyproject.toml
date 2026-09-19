@@ -13,6 +13,11 @@ authors = [{ name = "DecideKit contributors" }]
 keywords = ["ai", "decisions", "jev", "openrouter", "policy-engine"]
 dependencies = ["PyYAML>=6.0"]
 
+[project.urls]
+Homepage = "https://github.com/sameerkhan24/decidekit"
+Repository = "https://github.com/sameerkhan24/decidekit"
+Issues = "https://github.com/sameerkhan24/decidekit/issues"
+
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
