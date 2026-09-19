@@ -1,0 +1,45 @@
+version: 1
+name: pull-request-policy
+description: Route pull requests to the right checks and review path.
+model: typesafe/jev-1.13
+
+defaults:
+  minConfidence: 0.8
+
+decisions:
+  action:
+    type: choice
+    question: What is the safest next action for this pull request?
+    choices:
+      auto_merge: A routine, low-risk change with appropriate tests and no sensitive behavior.
+      human_review: A change requiring domain judgment, additional evidence, or manual inspection.
+      block: A likely security, data-loss, destructive, or backwards-incompatible change.
+    fallback: human_review
+
+  test_suite:
+    type: choice
+    question: Which test suite is the minimum safe suite for this change?
+    choices:
+      docs: Documentation and formatting checks only.
+      unit: Unit tests and static checks.
+      integration: Unit and integration tests.
+      full: All tests including end-to-end and security scans.
+    fallback: full
+
+  security_sensitive:
+    type: noul
+    question: Does this change affect authentication, authorization, secrets, payments, or sensitive data?
+    minConfidence: 0.85
+    fallback: true
+
+  risk:
+    type: score
+    question: How risky is this change if deployed without additional review?
+    levels:
+      - Trivial and easily reversible
+      - Low risk with limited blast radius
+      - Moderate risk requiring normal review
+      - High risk affecting critical behavior or data
+      - Critical risk with security or irreversible consequences
+    minConfidence: 0.7
+    fallback: 4

@@ -1,0 +1,17 @@
+{
+  "answers": {
+    "team": {
+      "type": "choice",
+      "choice": "engineering",
+      "probabilities": { "billing": 0.01, "engineering": 0.96, "account": 0.01, "general": 0.02 },
+      "confidence": 0.96
+    },
+    "urgent": { "type": "noul", "noul": 0.93 },
+    "sentiment": {
+      "type": "score",
+      "score": 2.6,
+      "probabilities": [0.01, 0.12, 0.62, 0.25],
+      "confidence": 0.86
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "customer": "Acme Corp",
+  "plan": "business",
+  "message": "Our webhook integration started returning 401s after yesterday's deploy. We have been unable to process new orders for two hours and need help immediately."
+}

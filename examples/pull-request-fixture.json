@@ -1,0 +1,35 @@
+{
+  "answers": {
+    "action": {
+      "type": "choice",
+      "choice": "human_review",
+      "probabilities": {
+        "auto_merge": 0.07,
+        "human_review": 0.88,
+        "block": 0.05
+      },
+      "confidence": 0.92
+    },
+    "test_suite": {
+      "type": "choice",
+      "choice": "integration",
+      "probabilities": {
+        "docs": 0.01,
+        "unit": 0.08,
+        "integration": 0.86,
+        "full": 0.05
+      },
+      "confidence": 0.91
+    },
+    "security_sensitive": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "risk": {
+      "type": "score",
+      "score": 3.7,
+      "probabilities": [0.01, 0.05, 0.3, 0.57, 0.07],
+      "confidence": 0.84
+    }
+  }
+}

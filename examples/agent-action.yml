@@ -1,0 +1,22 @@
+version: 1
+name: agent-action-gate
+description: Gate an AI agent's next tool action.
+
+defaults:
+  minConfidence: 0.85
+
+decisions:
+  action:
+    type: choice
+    question: What should the agent do with this proposed tool action?
+    choices:
+      allow: The action is read-only or reversible and matches the user's request.
+      confirm: The action may be consequential and needs explicit user approval.
+      deny: The action is destructive, unauthorized, or unrelated to the user's request.
+    fallback: confirm
+
+  sensitive:
+    type: noul
+    question: Would this action expose, delete, or modify sensitive data or credentials?
+    minConfidence: 0.9
+    fallback: true

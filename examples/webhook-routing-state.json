@@ -1,0 +1,8 @@
+{
+  "provider": "stripe",
+  "event_id": "evt_01JEVEXAMPLE",
+  "event_type": "charge.refunded",
+  "attempt": 1,
+  "delivery_error": "worker returned HTTP 503 after database connection timeout",
+  "payload_summary": "A customer payment was fully refunded after the order was canceled."
+}

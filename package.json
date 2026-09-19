@@ -1,0 +1,65 @@
+{
+  "name": "decidekit",
+  "version": "0.1.0",
+  "description": "A provider-neutral runtime for typed, confidence-aware AI decisions.",
+  "type": "module",
+  "license": "MIT",
+  "author": "DecideKit contributors",
+  "keywords": [
+    "ai",
+    "decisions",
+    "jev",
+    "openrouter",
+    "policy-engine",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./providers": {
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.js"
+    }
+  },
+  "bin": {
+    "decidekit": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "dev": "tsx src/cli.ts",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "prepublishOnly": "npm run check && npm run build",
+    "test": "vitest run",
+    "test:python": "PYTHONPATH=python python -m unittest discover -s python/tests -v",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@types/node": "^24.5.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

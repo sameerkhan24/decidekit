@@ -1,0 +1,16 @@
+{
+  "answers": {
+    "workflow": {
+      "type": "choice",
+      "choice": "handle_refund",
+      "probabilities": {
+        "fulfill_order": 0.01,
+        "handle_refund": 0.96,
+        "sync_customer": 0.01,
+        "investigate": 0.02
+      },
+      "confidence": 0.96
+    },
+    "retry": { "type": "noul", "noul": 0.2 }
+  }
+}

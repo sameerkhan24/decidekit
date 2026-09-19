@@ -1,0 +1,23 @@
+version: 1
+name: webhook-routing
+description: Choose a workflow for incoming webhook events.
+
+defaults:
+  minConfidence: 0.8
+
+decisions:
+  workflow:
+    type: choice
+    question: Which workflow should process this webhook event?
+    choices:
+      fulfill_order: A paid order that needs fulfillment or shipment.
+      handle_refund: A refund, chargeback, or payment reversal.
+      sync_customer: A customer profile or subscription update.
+      investigate: Unknown, malformed, duplicate, or suspicious event.
+    fallback: investigate
+
+  retry:
+    type: noul
+    question: Should this event be retried after a transient processing failure?
+    minConfidence: 0.85
+    fallback: false

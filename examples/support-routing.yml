@@ -1,0 +1,33 @@
+version: 1
+name: support-routing
+description: Route support tickets and identify urgency.
+
+defaults:
+  minConfidence: 0.75
+
+decisions:
+  team:
+    type: choice
+    question: Which team should handle this support request?
+    choices:
+      billing: Charges, invoices, refunds, subscriptions, or payment failures.
+      engineering: Bugs, errors, integrations, outages, or technical failures.
+      account: Login, permissions, profile, organization, or account access.
+      general: Product questions or requests that do not fit another team.
+    fallback: general
+
+  urgent:
+    type: noul
+    question: Does this request require immediate human attention?
+    minConfidence: 0.9
+    fallback: true
+
+  sentiment:
+    type: score
+    question: How frustrated does the customer appear?
+    levels:
+      - Calm and neutral
+      - Concerned but civil
+      - Frustrated and unhappy
+      - Extremely upset or threatening to leave
+    fallback: 3

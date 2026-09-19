@@ -1,0 +1,12 @@
+{
+  "title": "Add OAuth callback validation",
+  "files": ["src/auth/oauth.ts", "test/auth/oauth.test.ts"],
+  "diff": "Validate the callback state parameter before exchanging the authorization code. Add tests for missing and mismatched state values.",
+  "tests": {
+    "unit": "passed",
+    "integration": "not run"
+  },
+  "author": {
+    "role": "maintainer"
+  }
+}
